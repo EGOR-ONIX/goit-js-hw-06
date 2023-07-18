@@ -3,8 +3,18 @@ const input = document.getElementById("controls").firstElementChild;
 const btnCreate = document.querySelector("button[data-create]");
 const btnDestroy = document.querySelector("button[data-destroy]");
 
+const MIN_BOXES = input.getAttribute("min");
+const MAX_BOXES = input.getAttribute("max");
+
 btnCreate.addEventListener("click", () => {
-  createBoxes(input.value);
+  const dataUser = Number(input.value);
+  if (dataUser < MIN_BOXES || dataUser > MAX_BOXES) {
+    alert(
+      `Введіть коректну кількість елементів - більшу за ${MIN_BOXES}, але менше за ${MAX_BOXES}!`
+    );
+  } else {
+    createBoxes(dataUser);
+  }
 });
 
 btnDestroy.addEventListener("click", () => {
@@ -27,9 +37,8 @@ function createBoxes(amount) {
 }
 
 function destroyBoxes() {
-  do {
-    resultBox.firstElementChild.remove();
-  } while (resultBox.firstElementChild !== null);
+  resultBox.innerHTML = "";
+  input.value = "";
 }
 
 function getRandomHexColor() {

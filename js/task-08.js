@@ -11,8 +11,7 @@ form.addEventListener("submit", (event) => {
     alert("Всі поля повинні бути заповнені!");
   } else {
     const dataUser = { email: email.value, password: password.value };
-    console.log(`Email: ${dataUser.email}`);
-    console.log(`Password: ${dataUser.password}`);
+    console.dir(dataUser);
     event.currentTarget.reset();
   }
 });

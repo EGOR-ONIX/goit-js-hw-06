@@ -17,7 +17,8 @@ const gallery = document.querySelector(".gallery");
 
 const img = images.reduce(
   (result, { url, alt }) =>
-    result + `<li class="card"><img src="${url}" alt="${alt}"></li>`,
+    result +
+    `<li class="card"><img src="${url}" alt="${alt}" width="400"></li>`,
   ""
 );
 
